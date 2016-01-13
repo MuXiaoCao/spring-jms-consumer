@@ -14,13 +14,14 @@ public class StuManagerImpl implements StuManager {
 	private StuDao sd;
 	@Override
 	public Student login(String xh, String psd) {
-		
-		return sd.findStu(xh,BaseUtil.JohnMd(psd, "md5"));
+		System.out.println(psd);
+		return sd.findStu(xh,psd);
 	}
 
 	@Override
 	public int regist(Student s) {
-		s.setPsd(BaseUtil.JohnMd(s.getPsd(), "md5"));
+		System.out.println(s.getPsd());
+		//s.setPsd(BaseUtil.JohnMd(s.getPsd(), "md5"));
 		return sd.addStu(s);
 	}
 
