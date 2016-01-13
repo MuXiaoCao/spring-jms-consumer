@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+	<context:component-scan base-package="controller"></context:component-scan>
+	<context:component-scan base-package="service"></context:component-scan>
+	<context:component-scan base-package="dao"></context:component-scan>
+	<mvc:annotation-driven></mvc:annotation-driven>
+	<mvc:resources location="/" mapping="*.html"></mvc:resources>
+	<mvc:resources location="/" mapping="*.js"></mvc:resources>
+	<mvc:resources location="/css/" mapping="**"></mvc:resources>
+	<mvc:resources location="/js/" mapping="/js/*.js"></mvc:resources>
+	<mvc:resources location="/images/" mapping="**"></mvc:resources>
+	
+	
+	
+	<bean id="ds" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+		<property name="url" value="jdbc:mysql://localhost:3306/test"></property>
+		<property name="password" value="123"></property>
+		<property name="username" value="root"></property>
+	</bean>
+
+
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+
+</beans>
