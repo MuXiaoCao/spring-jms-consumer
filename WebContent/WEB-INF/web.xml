@@ -9,7 +9,7 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  <!-- 
+  
   <listener>
   	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   	
@@ -18,7 +18,7 @@
   	<param-name>contextConfigLocation</param-name>
   	<param-value>/WEB-INF/applicationContext.xml</param-value>
   </context-param>
-   -->
+   
   <filter>
   <filter-name>encoding</filter-name>
   	<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>

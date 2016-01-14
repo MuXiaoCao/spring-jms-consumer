@@ -20,7 +20,7 @@ import vo.Student;
 
 @Controller
 public class StuManagerController {
-	//@Autowired(required=true)
+	@Autowired(required=true)
 	private  StuManager sm;
 	
 	@RequestMapping("/stuLogin")
