@@ -20,7 +20,7 @@ import vo.Student;
 
 @Controller
 public class StuManagerController {
-	@Autowired(required=true)
+	//@Autowired(required=true)
 	private  StuManager sm;
 	
 	@RequestMapping("/stuLogin")
@@ -40,6 +40,7 @@ public class StuManagerController {
 	}
 	@RequestMapping("/stuRegist")
 	public String regist(Student s,HttpServletRequest request){
+		System.out.println(s.getUname()+"........");
 		int rs=sm.regist(s);
 		if(rs>0)
 		return "redirect:/regSuc.jsp";
