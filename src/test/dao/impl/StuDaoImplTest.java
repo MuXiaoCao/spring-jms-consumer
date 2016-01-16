@@ -42,5 +42,8 @@ public class StuDaoImplTest {
 		
 		Assert.assertTrue(rs>=1);
 	}
+	public static void main(String[] args) {
+		ApplicationContext context=new ClassPathXmlApplicationContext("applicationContext.xml");
+	}
 	
 }

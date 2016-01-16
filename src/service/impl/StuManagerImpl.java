@@ -2,6 +2,7 @@ package service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import cn.johnyu.util.BaseUtil;
 import dao.StuDao;
@@ -19,6 +20,7 @@ public class StuManagerImpl implements StuManager {
 	}
 
 	@Override
+	@Transactional
 	public int regist(Student s) {
 		System.out.println(s.getPsd());
 		//s.setPsd(BaseUtil.JohnMd(s.getPsd(), "md5"));
