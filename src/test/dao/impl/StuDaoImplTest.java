@@ -3,6 +3,8 @@ package test.dao.impl;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import vo.Student;
 import dao.StuDao;
@@ -12,7 +14,9 @@ public class StuDaoImplTest {
 	private static StuDao sd;
 	@BeforeClass
 	public static void beforeClass(){
-		sd=new StuDaoImpl();
+		ApplicationContext context=new ClassPathXmlApplicationContext("applicationContext.xml");
+		
+		sd=(StuDao)context.getBean("sd");
 	}
 	
 	@Test
