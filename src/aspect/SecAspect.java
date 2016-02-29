@@ -18,7 +18,10 @@ public class SecAspect {
 	public Object registMdProcess(ProceedingJoinPoint jp){
 		Object o=null;
 		Student stu=(Student)jp.getArgs()[0];	
-		stu.setPsd(BaseUtil.JohnMd(stu.getPsd(), "md5"));
+		if (stu != null) {
+			
+			stu.setPsd(BaseUtil.JohnMd(stu.getPsd(), "md5"));
+		}
 		
 		try {
 			o=jp.proceed();

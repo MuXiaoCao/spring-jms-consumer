@@ -5,7 +5,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.jms.Connection;
@@ -49,6 +51,57 @@ public class StuManagerController {
 	private Session session;
 	private Message msg;
 	private MessageProducer producer;
+	private MessageConsumer consumer;
+
+	private String info;
+	
+	@RequestMapping("/show")
+	public String showInfo(HttpServletRequest request) {
+		List<Student> students = sm.getStudents();
+		List<String> infos = new ArrayList<>();
+		
+		if (students != null) {
+			for (int i = 0; i < students.size(); i++) {
+				infos.add(students.get(i).toString());
+			}
+		}
+		
+		try {
+			conn = factory.createConnection();
+			conn.start();
+			session = conn.createSession(false, Session.AUTO_ACKNOWLEDGE);
+			//MessageProducer producer = session.createProducer(queue);
+			consumer = session.createConsumer(destination);
+			msg = consumer.receive();
+			info = ((TextMessage)msg).getText();
+			infos.add(info);
+			//TextMessage message = session.createTextMessage("hello lihui,my name is muxiaocao");
+			System.out.println(info);
+
+		} catch (JMSException e) {
+			e.printStackTrace();
+		}finally {
+			
+			try {
+				consumer.close();
+				session.close();
+				conn.close();
+			} catch (JMSException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		Student stu = new Student();
+		String[] strings = info.split("=");
+		stu.setDate_time(strings[4].split(",")[0]);
+		stu.setIP(strings[5]);
+		sm.regist(stu);
+		
+		request.getSession().setAttribute("s", infos);
+		System.out.println("s.size():" + infos.size() + "==info:" + info);
+		return "show";
+	}
+	
 	
 	@RequestMapping("/stuLogin")
 	public String login(String xh,String psd,HttpServletRequest request){

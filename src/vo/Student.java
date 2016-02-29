@@ -20,6 +20,10 @@ public class Student implements Serializable{
 	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator="seqhilo")  
 	private Integer id;
 	private String xh;
+	@Override
+	public String toString() {
+		return "Student id=" + id + ", xh=" + xh + ", psd=" + psd + ", date_time=" + date_time + ", IP=" + IP;
+	}
 	private String psd;
 	
 	private String date_time;

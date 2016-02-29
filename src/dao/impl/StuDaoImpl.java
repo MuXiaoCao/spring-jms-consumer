@@ -49,4 +49,13 @@ public class StuDaoImpl implements StuDao {
 		
 	}
 
+	@Override
+	public List<Student> findStus() {
+		String jpql="select s from Student s";
+		List<Student> ls=em.createQuery(jpql).getResultList();
+		System.out.println("==========================" );
+		if(ls.isEmpty()) return null;
+		else return ls;
+	}
+
 }

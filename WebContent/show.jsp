@@ -8,7 +8,7 @@
 </head>
 <body>
 Succe!!!!!
-${s.IP s.datetime }
+${s.size() }
 
 
 </body>
