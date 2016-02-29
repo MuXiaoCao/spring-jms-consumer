@@ -34,7 +34,7 @@ public class StuDaoImplTest {
 		Student s=new Student();
 		s.setUname("John¿´");
 		s.setXh("003");
-		s.setSex(true);
+		s.setSex(1);
 		s.setGroupid(1);
 		s.setPsd("ddfdsfsdf");
 		

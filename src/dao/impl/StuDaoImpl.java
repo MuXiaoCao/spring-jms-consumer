@@ -26,7 +26,6 @@ public class StuDaoImpl implements StuDao {
 	@PersistenceContext(name="un")
 	private EntityManager em;
 	@Override
-	
 	public int addStu(Student s) {
 		int rs=0;
 		

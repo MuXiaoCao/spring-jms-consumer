@@ -2,22 +2,26 @@ package vo;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.springframework.web.filter.CharacterEncodingFilter;
 @Entity
 @Table(name="students")
 public class Student implements Serializable{
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Id  
+	@Column(name="[id]")
+	@SequenceGenerator(name="seqhilo",sequenceName="st_id")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator="seqhilo")  
 	private Integer id;
 	private String uname;
 	private String psd;
-	private boolean sex;
+	private int sex;
 	private String xh;
 	private int groupid;
 	public Integer getId() {
@@ -38,10 +42,10 @@ public class Student implements Serializable{
 	public void setPsd(String psd) {
 		this.psd = psd;
 	}
-	public boolean isSex() {
+	public int isSex() {
 		return sex;
 	}
-	public void setSex(boolean sex) {
+	public void setSex(int sex) {
 		this.sex = sex;
 	}
 	public String getXh() {
