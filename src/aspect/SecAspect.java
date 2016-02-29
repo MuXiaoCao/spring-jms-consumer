@@ -1,5 +1,7 @@
 package aspect;
 
+import java.util.Date;
+
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -15,8 +17,9 @@ public class SecAspect {
 	@Around(registPc)
 	public Object registMdProcess(ProceedingJoinPoint jp){
 		Object o=null;
-		Student stu=(Student)jp.getArgs()[0];
+		Student stu=(Student)jp.getArgs()[0];	
 		stu.setPsd(BaseUtil.JohnMd(stu.getPsd(), "md5"));
+		
 		try {
 			o=jp.proceed();
 		} catch (Throwable e) {

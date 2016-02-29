@@ -18,7 +18,6 @@
 <form action="stuLogin" method="post">
 	<input type="text" name="xh"><br>
 	<input type="password" name="psd"><br>
-	<img alt="" src="tes1"><br>
 	<input type="submit">
 </form>
 </body>

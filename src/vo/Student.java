@@ -19,22 +19,37 @@ public class Student implements Serializable{
 	@SequenceGenerator(name="seqhilo",sequenceName="st_id")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator="seqhilo")  
 	private Integer id;
-	private String uname;
-	private String psd;
-	private int sex;
 	private String xh;
-	private int groupid;
+	private String psd;
+	
+	private String date_time;
+	private String IP;
+	
+	
+	public String getDate_time() {
+		return date_time;
+	}
+	public void setDate_time(String date_time) {
+		this.date_time = date_time;
+	}
+	public String getIP() {
+		return IP;
+	}
+	public void setIP(String iP) {
+		IP = iP;
+	}
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getUname() {
-		return uname;
+	
+	public String getXh() {
+		return xh;
 	}
-	public void setUname(String uname) {
-		this.uname = uname;
+	public void setXh(String xh) {
+		this.xh = xh;
 	}
 	public String getPsd() {
 		return psd;
@@ -42,26 +57,6 @@ public class Student implements Serializable{
 	public void setPsd(String psd) {
 		this.psd = psd;
 	}
-	public int isSex() {
-		return sex;
-	}
-	public void setSex(int sex) {
-		this.sex = sex;
-	}
-	public String getXh() {
-		return xh;
-	}
-	public void setXh(String xh) {
-		this.xh = xh;
-	}
-	public int getGroupid() {
-		return groupid;
-	}
-	public void setGroupid(int groupid) {
-		this.groupid = groupid;
-	}
-	
-	
 	
 	
 	

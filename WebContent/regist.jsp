@@ -10,11 +10,7 @@
 <form action="stuRegist" method="post">
 	xh:<input type="text" name="xh"><br>
 	psd:<input type="password" name="psd"><br>
-	name:<input type="text" name="uname"><br>
 	
-	groupid:<input type="password" name="groupid"><br>
-	sex:<input type="radio" value="true">male<input type="radio" value="false">female
-	<br>
 	<input type="submit">
 </form>
 </body>

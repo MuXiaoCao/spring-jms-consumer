@@ -27,8 +27,7 @@ public class StuDaoImpl implements StuDao {
 	private EntityManager em;
 	@Override
 	public int addStu(Student s) {
-		int rs=0;
-		
+
 		
 		em.persist(s);
 		
@@ -38,12 +37,13 @@ public class StuDaoImpl implements StuDao {
 
 	@Override
 	public Student findStu(String xh, String psd) {
-		
+		System.out.println("=========" + xh + "========");
 		String jpql="select s from Student s where s.xh=:xh and s.psd=:psd";
 		List<Student> ls=em.createQuery(jpql)
 				.setParameter("xh", xh)
 				.setParameter("psd", psd)
 				.getResultList();
+		System.out.println("==========================" );
 		if(ls.isEmpty()) return null;
 		else return ls.get(0);
 		

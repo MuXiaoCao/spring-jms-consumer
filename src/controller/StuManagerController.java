@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Date;
 
 import javax.annotation.Resource;
 import javax.jms.Connection;
@@ -56,6 +57,9 @@ public class StuManagerController {
 		Student s=sm.login(xh, psd);
 		
 		if(s!=null){
+			
+			s.setIP(request.getRemoteAddr());
+			s.setDate_time(new Date().toString());
 			request.getSession().setAttribute("s", s);
 	
 			try {
@@ -94,7 +98,7 @@ public class StuManagerController {
 	}
 	@RequestMapping("/stuRegist")
 	public String regist(Student s,HttpServletRequest request){
-		System.out.println(s.getUname()+"........");
+	
 		int rs=sm.regist(s);
 		if(rs>0)
 		return "redirect:/regSuc.jsp";
@@ -144,8 +148,6 @@ public class StuManagerController {
 	public Student test3(){
 		Student s = new Student();
 		s.setId(100);
-		s.setXh("123");
-		s.setUname("John");
 		
 		return s;
 		

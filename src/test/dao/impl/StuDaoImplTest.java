@@ -32,10 +32,8 @@ public class StuDaoImplTest {
 	@Test
 	public void testAddStu(){
 		Student s=new Student();
-		s.setUname("John¿´");
-		s.setXh("003");
-		s.setSex(1);
-		s.setGroupid(1);
+
+	
 		s.setPsd("ddfdsfsdf");
 		
 		int rs=sd.addStu(s);

@@ -8,7 +8,7 @@
 </head>
 <body>
 Succe!!!!!
-${s.uname }
+${s.IP }
 
 
 </body>

@@ -22,10 +22,9 @@ public class StuManagerImplTest {
 	public void testRegist() {
 		Student s = new Student();
 		
-		s.setUname("xiaocao");
+
 		s.setPsd("123");
-		s.setSex(1);
-		s.setXh("111");
+
 		int id = sm.regist(s);
 	}
 }
