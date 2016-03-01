@@ -10,14 +10,16 @@
 </head>
 <body>
  <% List<String> info = (List)request.getSession().getAttribute("s"); %>
- <% for(String ss:info) { 
+ <% 
+ if(info!=null){
+ for(String ss:info) { 
  	out.write(ss);
  %>
  	
  	<br>
 	 
 	 <% 
- }
+ }}
  %>
 </body>
 </html>
