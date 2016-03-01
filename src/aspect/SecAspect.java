@@ -12,7 +12,7 @@ import vo.Student;
 @Aspect
 @Component
 public class SecAspect {
-	private final String registPc="execution(* service.StuManager.regist(..))";
+	/*private final String registPc="execution(* service.StuManager.regist(..))";
 	private final String loginPc="execution(* service.StuManager.login(..))";
 	@Around(registPc)
 	public Object registMdProcess(ProceedingJoinPoint jp){
@@ -43,5 +43,5 @@ public class SecAspect {
 		}
 		return o;
 				
-	}
+	}*/
 }
